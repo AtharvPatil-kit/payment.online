@@ -79,7 +79,7 @@
       }
 
       const upiLink = `upi://pay?pa=${upi}&pn=Payee&am=${amount}&cu=INR`;
-      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
 
       qrDiv.innerHTML = `
         <p class="text-lg text-gray-800 mb-2">Scan to pay ₹${amount} to <strong>${upi}</strong></p>
