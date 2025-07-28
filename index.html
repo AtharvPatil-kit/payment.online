@@ -2,13 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Smart UPI QR Generator</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Prevent rotation effects */
+    body.landscape-warning {
+      display: none;
+    }
+
+    #rotate-warning {
+      display: none;
+    }
+
+    @media screen and (orientation: landscape) {
+      #rotate-warning {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        background: #fff;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #7c3aed;
+      }
+
+      #main-content {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body class="bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen flex flex-col items-center justify-center font-sans p-6">
 
-  <div class="bg-white shadow-xl rounded-2xl p-6 w-full max-w-md">
+  <div id="rotate-warning">
+    🔄 Please rotate your device back to portrait mode.
+  </div>
+
+  <div id="main-content" class="bg-white shadow-xl rounded-2xl p-6 w-full max-w-md">
     <h1 class="text-2xl font-bold text-purple-700 mb-4 text-center">💸 Instant UPI QR Generator</h1>
 
     <input id="upiId" type="text" placeholder="Your UPI ID (e.g., abc@upi)" 
