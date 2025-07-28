@@ -1,1 +1,1 @@
-# payment.online
+# instant.pay
